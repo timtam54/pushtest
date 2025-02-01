@@ -2,8 +2,8 @@ import webpush from 'web-push';
 
 webpush.setVapidDetails(
   'mailto:timhams@gmail.com',
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
-  process.env.NEXT_PUBLIC_VAPID_PRIVATE_KEY!,
+  'BHgQh83cAayq1o13TMjh6qZGdLC_VMCkxn3YdKkVb3afh5lNgpBkdCXMlF3UVUUcE_M7eSWKEq5I376EyP-utgU',//process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+  'NkPwS8h4UEbu89ehDSjYUVR5WfRRWyaq8XIdoHm7GNQ',//process.env.NEXT_PUBLIC_VAPID_PRIVATE_KEY!,
 );
 
 interface PushSubscription {
