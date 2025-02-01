@@ -8,7 +8,7 @@ export function notificationUnsupported(): boolean {
     !('showNotification' in ServiceWorkerRegistration.prototype)
   ) {
     unsupported = true;
-  }
+  } 
   return unsupported;
 }
 
