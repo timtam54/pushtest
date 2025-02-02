@@ -61,13 +61,17 @@ async function submitSubscription(subscription: PushSubscription): Promise<void>
 
 export async function registerAndSubscribe(
   onSubscribe: (subs: PushSubscription | null) => void,
-): Promise<void> {
+): Promise<string> {
   try {
     await navigator.serviceWorker.register(SERVICE_WORKER_FILE_PATH);
     await subscribe(onSubscribe);
+    return 'success'
   } catch (e) {
     console.error('Failed to register service-worker: ', e);
+
+    return ('Failed to register service-worker: '+ e);
   }
+
 }
 
 export async function sendWebPush(message: string | null): Promise<void> {

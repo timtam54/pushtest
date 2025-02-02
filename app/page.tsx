@@ -45,7 +45,7 @@ export default function Home() {
       <div className={styles.center}>
         <button
           disabled={unsupported}
-          onClick={() => registerAndSubscribe(setSubscription)}
+          onClick={async() => {const res=await registerAndSubscribe(setSubscription);alert(res);}}
           className={subscription ? styles.activeButton : ''}>
           {unsupported
             ? 'Notification Unsupported'
