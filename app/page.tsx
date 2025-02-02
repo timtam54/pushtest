@@ -19,14 +19,14 @@ export default function Home() {
     setInterval(async () => {
       try {
         sendWebPush("This is a scheduled push notification")
-/*        const response = await fetch("/api/send-notification", { method: "POST" })
+    /*    const response = await fetch("/api/send-notification", { method: "POST" })
         if (!response.ok) {
           throw new Error("Failed to send notification")
         }*/
       } catch (error) {
         console.error("Failed to send notification: ", error)
       }
-    }, 60000) // 60000 ms = 1 minute
+    }, 20000) // 60000 ms = 1 minute
   }
 
   useEffect(() => {
