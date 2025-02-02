@@ -37,7 +37,9 @@ async function subscribe(onSubscribe: (subs: PushSubscription | null) => void): 
       });
     })
     .then((subscription: PushSubscription) => {
-      console.info('Created subscription Object: ', subscription.toJSON());
+      console.info('Created subscription Object: ', JSON.stringify( subscription.toJSON()));
+      alert('Created subscription Object: '+ JSON.stringify(subscription.toJSON()));
+
       submitSubscription(subscription).then(_ => {
         onSubscribe(subscription);
       });

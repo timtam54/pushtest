@@ -26,7 +26,7 @@ export default function Home() {
       } catch (error) {
         console.error("Failed to send notification: ", error)
       }
-    }, 20000) // 60000 ms = 1 minute
+    }, 60000) // 60000 ms = 1 minute
   }
 
   useEffect(() => {
