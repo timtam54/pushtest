@@ -28,11 +28,12 @@ export function checkPermissionStateAndAct(
 }
 
 async function subscribe(onSubscribe: (subs: PushSubscription | null) => void): Promise<void> {
+  
   navigator.serviceWorker.ready
     .then((registration: ServiceWorkerRegistration) => {
       return registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: 'BHgQh83cAayq1o13TMjh6qZGdLC_VMCkxn3YdKkVb3afh5lNgpBkdCXMlF3UVUUcE_M7eSWKEq5I376EyP-utgU',//process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+        applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,//'BHgQh83cAayq1o13TMjh6qZGdLC_VMCkxn3YdKkVb3afh5lNgpBkdCXMlF3UVUUcE_M7eSWKEq5I376EyP-utgU',//,
       });
     })
     .then((subscription: PushSubscription) => {
@@ -42,7 +43,7 @@ async function subscribe(onSubscribe: (subs: PushSubscription | null) => void): 
       });
     })
     .catch(e => {
-      console.error('Failed to subscribe cause of: ', e);
+      alert('Failed to subscribe cause of: '+ e);
     });
 }
 
@@ -67,7 +68,7 @@ export async function registerAndSubscribe(
     await subscribe(onSubscribe);
     return 'success'
   } catch (e) {
-    console.error('Failed to register service-worker: ', e);
+    alert('Failed to register service-worker: '+e);
 
     return ('Failed to register service-worker: '+ e);
   }
