@@ -6,6 +6,12 @@ const sendDeliveryReportAction = () => {
   console.log('Web push delivered.');
 };
 
+self.addEventListener('notificationclick', function (event) {
+  console.log('Notification click received.')
+  event.notification.close()
+  event.waitUntil(clients.openWindow('https://delightful-flower-043e6d600.4.azurestaticapps.net/'))
+})
+
 self.addEventListener('push', function (event) {
   if (!event.data) {
     return;
