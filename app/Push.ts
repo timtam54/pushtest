@@ -1,4 +1,4 @@
-const SERVICE_WORKER_FILE_PATH = './sw.js';
+const SERVICE_WORKER_FILE_PATH = '/sw.js';//was './sw.js';
 
 export function notificationUnsupported(): boolean {
   let unsupported = false;
